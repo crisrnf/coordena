@@ -1,0 +1,9 @@
+<h1>Bienvenido a COORDENA</h1>
+
+<% if user_signed_in? %>
+  <p>Hola, <%= current_user.email %></p>
+<%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, data: { turbo: false } %>
+  <% else %>
+  <%= link_to "Iniciar sesión", new_user_session_path %> |
+  <%= link_to "Registrarse", new_user_registration_path %>
+<% end %>

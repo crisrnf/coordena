@@ -1,0 +1,59 @@
+<div class="login-container">
+  <div class="login-card">
+    <!-- Logo / Nombre -->
+    <div class="logo">Coordena</div>
+    <h2 class="welcome">Bienvenido a Coordena</h2>
+
+    <!-- Formulario de inicio de sesión -->
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <%= f.label :email, "Correo electrónico" %>
+        <%= f.email_field :email, autofocus: true, class: "input-field", placeholder: "ejemplo@correo.com" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, "Contraseña" %>
+        <div class="password-wrapper">
+          <%= f.password_field :password, id: "password_field", class: "input-field", placeholder: "••••••••" %>
+          <button type="button" id="toggle_password" class="toggle-btn">👁️</button>
+        </div>
+      </div>
+
+      <%= f.submit "Iniciar Sesión", class: "btn-primary" %>
+    <% end %>
+
+    <div class="divider">o</div>
+    <!-- Botón Google dentro de la caja -->
+    <div class="google-login">
+      <%= link_to user_google_oauth2_omniauth_authorize_path, class: "google-btn" do %>
+        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo">
+        Iniciar sesión con Google
+      <% end %>
+    </div>
+
+    <!-- Link registro -->
+    <p class="register-text">
+      ¿No tienes cuenta?  
+      <%= link_to "Regístrate aquí", new_user_registration_path, class: "register-link" %>
+    </p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("toggle_password");
+    const field = document.getElementById("password_field");
+
+    if (toggle && field) {
+      toggle.addEventListener("click", () => {
+        if (field.type === "password") {
+          field.type = "text";
+          toggle.textContent = "🙈";
+        } else {
+          field.type = "password";
+          toggle.textContent = "👁️";
+        }
+      });
+    }
+  });
+</script>

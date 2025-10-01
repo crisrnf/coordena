@@ -1,0 +1,182 @@
+/* ---- Layout ---- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* ---- Container ---- */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+}
+
+.login-card {
+  background: white;
+  border-radius: 15px;
+  padding: 35px 25px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* ✅ todo en vertical */
+  gap: 20px;
+}
+
+/* ---- Logo ---- */
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2E7D32;
+  margin-bottom: 5px;
+}
+
+.welcome {
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+  color: #555;
+}
+
+/* ---- Inputs ---- */
+.form-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+/* ---- Password toggle ---- */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* ---- Botón principal ---- */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: #4CAF50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #388E3C;
+}
+
+/* ---- Divider ---- */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+
+.divider::before, .divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.divider::before {
+  margin-right: 10px;
+}
+.divider::after {
+  margin-left: 10px;
+}
+
+/* ---- Botón Google ---- */
+.google-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.google-btn:hover {
+  background: #f5f5f5;
+}
+
+/* ---- Registro ---- */
+.register-text {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #444;
+}
+
+.register-link {
+  color: #2E7D32;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 25px 15px;
+    gap: 15px;
+  }
+  .logo {
+    font-size: 24px;
+  }
+  .welcome {
+    font-size: 16px;
+  }
+  .btn-primary, .google-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+

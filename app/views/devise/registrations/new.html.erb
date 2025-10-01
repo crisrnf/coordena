@@ -1,0 +1,57 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="logo">Coordena</div>
+    <h2 class="welcome">Registrarse en Coordena</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <%= f.label :nombre, "Nombre" %>
+        <%= f.text_field :nombre, class: "input-field", placeholder: "Tu nombre" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :apellido, "Apellido" %>
+        <%= f.text_field :apellido, class: "input-field", placeholder: "Tu apellido" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email, "Correo electrónico" %>
+        <%= f.email_field :email, autofocus: true, class: "input-field", placeholder: "ejemplo@correo.com" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, "Contraseña" %>
+        <div class="password-wrapper">
+          <%= f.password_field :password, id: "password_field", class: "input-field", placeholder: "••••••••" %>
+          <button type="button" id="toggle_password" class="toggle-btn">👁️</button>
+        </div>
+      </div>
+
+      <%= f.submit "Registrarse", class: "btn-primary" %>
+    <% end %>
+
+    <p class="register-text">
+      ¿Ya tienes cuenta?
+      <%= link_to "Inicia sesión aquí", new_session_path(resource_name), class: "register-link" %>
+    </p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("toggle_password");
+    const field = document.getElementById("password_field");
+
+    if (toggle && field) {
+      toggle.addEventListener("click", () => {
+        if (field.type === "password") {
+          field.type = "text";
+          toggle.textContent = "🙈";
+        } else {
+          field.type = "password";
+          toggle.textContent = "👁️";
+        }
+      });
+    }
+  });
+</script>
