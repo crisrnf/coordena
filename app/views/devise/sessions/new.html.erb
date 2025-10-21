@@ -37,6 +37,12 @@
       <%= link_to "Regístrate aquí", new_user_registration_path, class: "register-link" %>
     </p>
   </div>
+  <% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 </div>
 
 <script>

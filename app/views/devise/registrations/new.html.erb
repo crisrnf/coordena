@@ -35,6 +35,16 @@
       <%= link_to "Inicia sesión aquí", new_session_path(resource_name), class: "register-link" %>
     </p>
   </div>
+  <% if resource.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+      <% resource.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 </div>
 
 <script>
