@@ -11,11 +11,4 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
-    # Devise
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
-  # Validación de correo externo
-  validates :email, email_existence: true
 end
-

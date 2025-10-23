@@ -1,9 +1,30 @@
-<h1>Bienvenido a COORDENA</h1>
+<nav class="navbar">
+  <div class="navbar-content">
+    <span class="navbar-logo">COORDENA</span>
+    <div class="navbar-links">
+      <% if user_signed_in? %>
+        <span>Hola, <%= current_user.email %></span>
+        <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, data: { turbo: false }, class: "btn-primary navbar-btn" %>
+      <% else %>
+        <%= link_to "Iniciar sesión", new_user_session_path, class: "btn-primary navbar-btn" %>
+        <%= link_to "Registrarse", new_user_registration_path, class: "google-btn navbar-btn" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
 
-<% if user_signed_in? %>
-  <p>Hola, <%= current_user.email %></p>
-<%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, data: { turbo: false } %>
-  <% else %>
-  <%= link_to "Iniciar sesión", new_user_session_path %> |
-  <%= link_to "Registrarse", new_user_registration_path %>
-<% end %>
+<div class="login-container">
+  <div class="login-card">
+    <div class="logo">COORDENA</div>
+    <h2 class="welcome">Bienvenido a COORDENA</h2>
+    <% if user_signed_in? %>
+      <p>Hola, <%= current_user.email %></p>
+      <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, data: { turbo: false }, class: "btn-primary" %>
+    <% else %>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <%= link_to "Iniciar sesión", new_user_session_path, class: "btn-primary" %>
+        <%= link_to "Registrarse", new_user_registration_path, class: "google-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -6,9 +6,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh; /* 👈 en vez de min-height */
   flex-direction: column;
+  overflow: hidden; /* 👈 bloquea el scroll */
 }
+
 
 /* ---- Container ---- */
 .login-container {
@@ -25,7 +27,7 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column; /* ✅ todo en vertical */
-  gap: 20px;
+  gap: 25px;
 }
 
 /* ---- Logo ---- */
@@ -56,11 +58,13 @@ body {
 
 .input-field {
   width: 100%;
-  padding: 12px;
+  box-sizing: border-box;
+  padding: 14px; /* igual que el botón */
   border: 1px solid #ccc;
   border-radius: 8px;
   margin-top: 5px;
-  font-size: 15px;
+  font-size: 16px;
+  display: block;
 }
 
 /* ---- Password toggle ---- */
@@ -91,6 +95,8 @@ body {
   cursor: pointer;
   font-size: 16px;
   transition: background 0.3s ease;
+  box-sizing: border-box;
+  display: block;
 }
 
 .btn-primary:hover {
@@ -126,7 +132,7 @@ body {
   align-items: center;
   gap: 10px;
   width: 100%;
-  padding: 12px;
+  padding: 14px; /* igual que el botón principal */
   background: white;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -134,6 +140,8 @@ body {
   color: #333;
   text-decoration: none;
   transition: background 0.3s ease;
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
 .google-btn img {
@@ -162,6 +170,50 @@ body {
   text-decoration: underline;
 }
 
+/* ---- Navbar ---- */
+.navbar {
+  width: 100vw;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 0 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.navbar-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 30px;
+}
+
+.navbar-logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2E7D32;
+  letter-spacing: 1px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-btn {
+  width: auto;
+  min-width: 120px;
+  margin-left: 5px;
+  margin-right: 0;
+  padding: 8px 18px;
+  font-size: 15px;
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 480px) {
   .login-card {
@@ -177,6 +229,20 @@ body {
   .btn-primary, .google-btn {
     font-size: 14px;
     padding: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-content {
+    padding: 0 10px;
+  }
+  .navbar-logo {
+    font-size: 18px;
+  }
+  .navbar-btn {
+    min-width: 90px;
+    font-size: 13px;
+    padding: 7px 10px;
   }
 }
 
